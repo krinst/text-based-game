@@ -1,0 +1,223 @@
+/* page-wide styling */
+* {
+    color: white;
+    font-family: 'VT323', monospace;
+}
+
+body {
+    /* TODO? find a patterned image for background */
+    background-color: #232324;
+}
+
+
+/* formatting grid (covers entire page) */
+.grid-container {
+    height: 100vh; /* matches grid-container to viewport height (browser) rather than fitting the content */
+
+    display: grid;
+    grid-area: 2fr 5fr 1fr / 1fr 5fr 1fr;
+    grid-template-areas:
+    "header header header"
+    ". main ."
+    "footer footer footer";
+
+    justify-content: center;
+}
+
+
+/* Header related styles */
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+
+/* navigations menu */
+nav ul {
+    display: inline-block;
+}
+
+nav li.skewed-buttons {
+    /* overall appearance; navigation buttons specific */
+    list-style-type: none;
+    float: left;
+    margin: 0px 20px;
+}
+
+.menu-items a {
+    /* text appearance */
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none; /* no underlines */
+    text-transform: uppercase;
+    
+    /* button appearance */
+    display: block;
+    width: 150px;
+    padding: 10px 0px;
+}
+
+
+/* main - for grid formatting */
+main {
+    grid-area: main;
+}
+
+
+/* footer */
+footer {
+    grid-area: footer;
+}
+footer p { /* text position in footer */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* game */
+/*placeholder content - to know size for game*/
+/* #game-screen {
+    height: 350px;
+    width: 500px;
+    background-color: #365555;
+} */
+#input {
+    border: 3px solid #00ffff;
+    width: 500px;
+}
+#user-input {
+    border: none;
+    width: 450px;
+}
+#event-box {
+    height: 350px;
+    width: 500px;
+    margin: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    border: 2px solid white;
+}
+div.comp {
+    color: #00ffff;
+    margin-bottom: 5px;
+}
+
+/* LOG IN page specific formatting */
+#login-page {
+    display: grid; /* another grid: for log in form and registration form */
+    grid-template-columns: 50% 50%;
+    column-gap: 50px
+}
+/* add padding between elements */
+#login-page div {
+    padding: 10px;
+}
+
+/* set button size */
+button {
+    height: 30px;
+    width: 80px;
+}
+
+
+/* Ranks Table */
+table {
+    border: 3px solid #00ffff;
+    align-self: center;
+    width: 350px;
+    border-collapse: collapse;
+}
+/* change colour for every other row */
+tr:nth-child(even) {
+    background-color: #3b3b3b;
+}
+tr > th {
+    text-transform: uppercase;
+    height: 50px;
+    border-bottom: 3px solid #00ffff;
+    text-shadow: 0 0 3px white;
+    
+}
+th, td {
+    padding: 10px;
+    border-right: 3px solid #00ffff;
+}
+td:nth-child(1) { /* First column: change width */
+    width: 30px;
+}
+#winner-icon { /* change image size */
+    height:10px;
+    width:auto;
+}
+
+/* ADDITIONAL STUFFS */
+
+/* skewed buttons - used for navigation buttons and login form buttons */
+.skewed-buttons {
+    /* creates the skewed look */
+    background-color: #232324;
+    transform: skew(-10deg);
+    
+    /* for the neon border and glow */
+    border: 3px solid #00ffff;
+    /* box-shadow: 5px 3px 5px #00ffff; */
+    box-shadow: 5px 3px #00ffff;
+}
+/* change button color on hover or if it has class "selected"*/
+.skewed-buttons:hover, .selected {
+    background-color: #3b3b3b;
+    border-color: white;
+    box-shadow: 5px 3px white;
+}
+/* only on class selected: add white glow on text */
+.selected {
+    text-shadow: 0 0 3px white;
+}
+/* simulates a button press on click by moving the button position down */
+.skewed-buttons:active {
+    background: inherit;
+    border-color: #00ffff;
+    box-shadow: none;
+    transform: skew(-10deg) translate(5px, 3px);
+}
+
+/* Manage appearance for text-fields */
+input {
+    background-color: #232324;
+    padding: 10px 15px;
+    
+    /* adds blue border on the bottom part only */
+    border: none;
+    border-bottom: 3px solid #00ffff;
+}
+
+
+/* For a code-like appearance on <code> tags */
+code {
+    font-family: 'Courier New', Courier, monospace;
+
+    /* frames the text */
+    background-color: #3b3b3b;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 2px;
+}
+ul.vertical-margins > li {
+    /* add vertical margins (on top and bottom of the code tag) with vertical-margins class to prevent overlapping */
+    margin: 10px 0px;
+}
+code > i {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Give glow to headings (h1 - h3) */
+h1, h2, h3 {
+    text-shadow: 0 0 3px white;
+}
+
+/* Rules */
+@font-face {
+    font-family: VT323;
+    src: url('fonts/VT323-Regular.ttf');
+}
